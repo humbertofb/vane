@@ -1,92 +1,203 @@
-/* General adjustments for mobile */
+/* Asegúrate de que el contenedor principal se ajuste en móviles */
+#envelope {
+  position: relative;
+  width: 80vw; /* 80% del ancho de la pantalla */
+  max-width: 350px; /* Limitar el ancho máximo para que no se vea demasiado pequeño */
+  height: auto;
+  border-radius: 10px; /* Un poco de redondeo en las esquinas */
+  margin: 20px auto; /* Centrado automático */
+  background-color: #d9534f;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.front {
+  width: 100%;
+  height: auto;
+  z-index: 3;
+}
+
+.flap {
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 70px solid #d9534f;
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.pocket {
+  border-left: 60px solid #f5a3a2;
+  border-right: 60px solid #f5a3a2;
+  border-bottom: 60px solid #ff6f61;
+  border-top: 60px solid transparent;
+  border-radius: 6px;
+}
+
+.letter {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  height: auto;
+  padding: 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
+  font-family: "Dancing Script", cursive;
+}
+
+.words {
+  position: relative;
+  background-color: #ffe6e6;
+  padding: 10px;
+  text-align: center;
+  font-size: 1rem;
+  margin: 5px auto;
+}
+
+.words.line1,
+.words.line2,
+.words.line3,
+.words.line4 {
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.open .flap {
+  transform: rotateX(180deg);
+  transition: transform 0.4s ease, z-index 0.6s;
+  z-index: 1;
+}
+
+.close .flap {
+  transform: rotateX(0deg);
+  transition: transform 0.4s 0.6s ease, z-index 1s;
+  z-index: 5;
+}
+
+.close .letter {
+  transform: translateY(0px);
+  transition: transform 0.4s ease, z-index 1s;
+  z-index: 1;
+}
+
+.open .letter {
+  transform: translateY(-100px);
+  transition: transform 0.4s 0.6s ease, z-index 0.6s;
+  z-index: 2;
+}
+
+.hearts {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.heart {
+  position: absolute;
+  bottom: 0;
+  right: 10%;
+  pointer-events: none;
+}
+
+.heart:before,
+.heart:after {
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 80px;
+  background: #e60073;
+  border-radius: 50px 50px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+  pointer-events: none;
+}
+
+.heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin: 100% 100%;
+}
+
+.close .heart {
+  opacity: 0;
+  -webkit-animation: none;
+  animation: none;
+}
+
+.a1 {
+  left: 20%;
+  transform: scale(0.6);
+  opacity: 1;
+  -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+.a2 {
+  left: 55%;
+  transform: scale(1);
+  opacity: 1;
+  -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+.a3 {
+  left: 10%;
+  transform: scale(0.8);
+  opacity: 1;
+  -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  animation-fill-mode: forwards;
+  animation-delay: 0.7s;
+}
+
+/* Ajustes para dispositivos móviles */
 @media (max-width: 600px) {
-  /* Hacer el sobre más pequeño y ajustarlo al centro */
   #envelope {
-    width: 80vw;  /* Utiliza el 80% del ancho de la pantalla */
-    height: auto;  /* Deja que la altura se ajuste automáticamente */
-    top: 10vh;  /* Añade un poco de espacio desde la parte superior */
-    margin-left: auto;
-    margin-right: auto;
+    width: 90vw; /* Aumenta el tamaño en móviles */
+    height: auto;
+    top: 5vh; /* Espacio desde la parte superior */
   }
 
-  .letter {
-    width: 100%;  /* Asegura que la carta ocupe el 100% del contenedor */
-    height: auto;  /* Deja que la carta se ajuste a su contenido */
-    top: 5%;
-  }
-
-  .words.line1,
-  .words.line2,
-  .words.line3,
-  .words.line4 {
-    font-size: 1rem;  /* Aumenta el tamaño de fuente para que sea legible en móviles */
-    width: 90%;  /* Asegura que las palabras no se corten */
-    text-align: center;  /* Centra el texto */
-  }
-
-  /* Ajusta los tamaños de los flaps */
   .flap {
-    border-left: 60px solid transparent;  /* Reduce el tamaño de los flaps */
-    border-right: 60px solid transparent;
-    border-top: 50px solid #d9534f;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 60px solid #d9534f;
   }
 
   .pocket {
-    border-left: 60px solid #f5a3a2;
-    border-right: 60px solid #f5a3a2;
+    border-left: 50px solid #f5a3a2;
+    border-right: 50px solid #f5a3a2;
     border-bottom: 50px solid #ff6f61;
     border-top: 50px solid transparent;
   }
 
-  /* Ajuste de la posición de los corazones */
-  .hearts {
-    top: 25px;
-  }
-
-  .heart {
-    right: 10%;
-  }
-
-  /* Animaciones ajustadas */
-  .a1, .a2, .a3 {
-    transform: scale(1);  /* Ajuste de la escala */
-  }
-
-  /* Ajustes para que los botones sean funcionales */
-  .reset button {
-    font-size: 16px;  /* Ajusta el tamaño del texto */
-    padding: 12px 24px;  /* Ajusta el tamaño de los botones */
-    min-width: 150px;  /* Asegura que los botones tengan suficiente tamaño */
-  }
-}
-
-/* Ajustes para pantallas más grandes como tablets */
-@media (max-width: 1024px) {
-  #envelope {
-    width: 60vw;  /* Aumenta el tamaño para tablets */
-  }
-
   .letter {
-    width: 90%;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .words {
+    font-size: 0.9rem;  /* Ajusta el tamaño del texto */
+    padding: 5px;
   }
 
   .words.line1,
   .words.line2,
   .words.line3,
   .words.line4 {
-    font-size: 1.2rem;
+    font-size: 0.9rem;  /* Ajusta el tamaño de las líneas */
   }
 
-  .flap {
-    border-left: 90px solid transparent;
-    border-right: 90px solid transparent;
-    border-top: 75px solid #d9534f;
-  }
-
-  .pocket {
-    border-left: 90px solid #f5a3a2;
-    border-right: 90px solid #f5a3a2;
-    border-bottom: 70px solid #ff6f61;
-    border-top: 70px solid transparent;
+  .reset button {
+    font-size: 16px;
+    padding: 12px 20px;
+    min-width: 150px;
   }
 }
