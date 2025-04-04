@@ -228,13 +228,6 @@
     margin-left: 50px;
   }
 }
-
-@media screen and (max-width: 600px) {
-  .letter {
-    transform: scale(1.5);
-    transform-origin: top center;
-  }
-  
 body {
   background-color: #f0e6f6; /* Soft lavender for a romantic, dreamy feel */
 }
