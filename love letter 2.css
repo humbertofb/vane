@@ -70,27 +70,27 @@
 
 .words.line1 {
   top: 10%;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   width: 20%;
   height: 7%;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 .words.line2 {
   top: 30%;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .words.line3 {
   top: 50%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
 .words.line4 {
   top: 70%;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   text-align: center;
 }
 
