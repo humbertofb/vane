@@ -1,30 +1,86 @@
-/* Establecer un tamaño de carta más flexible para pantallas pequeñas */
+/* General adjustments for mobile */
 @media (max-width: 600px) {
+  /* Hacer el sobre más pequeño y ajustarlo al centro */
   #envelope {
-    width: 80%;  /* Ajusta el ancho de la carta */
+    width: 80vw;  /* Utiliza el 80% del ancho de la pantalla */
     height: auto;  /* Deja que la altura se ajuste automáticamente */
-    top: 100px;  /* Mueve un poco la carta hacia arriba en móviles */
+    top: 10vh;  /* Añade un poco de espacio desde la parte superior */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .letter {
-    width: 100%;  /* Asegúrate de que la carta ocupe el 100% del ancho disponible */
-    height: auto;  /* Ajusta la altura según el contenido */
-    top: 10%;
+    width: 100%;  /* Asegura que la carta ocupe el 100% del contenedor */
+    height: auto;  /* Deja que la carta se ajuste a su contenido */
+    top: 5%;
   }
 
-  .words.line1 {
-    font-size: 1rem;  /* Aumenta el tamaño de fuente para ser legible en móviles */
-    width: 80%;  /* Asegúrate de que las palabras no sean demasiado pequeñas */
+  .words.line1,
+  .words.line2,
+  .words.line3,
+  .words.line4 {
+    font-size: 1rem;  /* Aumenta el tamaño de fuente para que sea legible en móviles */
+    width: 90%;  /* Asegura que las palabras no se corten */
+    text-align: center;  /* Centra el texto */
   }
 
-  .words.line2, .words.line3, .words.line4 {
-    font-size: 1.1rem;  /* Aumenta el tamaño de fuente para un mejor contraste */
+  /* Ajusta los tamaños de los flaps */
+  .flap {
+    border-left: 60px solid transparent;  /* Reduce el tamaño de los flaps */
+    border-right: 60px solid transparent;
+    border-top: 50px solid #d9534f;
+  }
+
+  .pocket {
+    border-left: 60px solid #f5a3a2;
+    border-right: 60px solid #f5a3a2;
+    border-bottom: 50px solid #ff6f61;
+    border-top: 50px solid transparent;
+  }
+
+  /* Ajuste de la posición de los corazones */
+  .hearts {
+    top: 25px;
+  }
+
+  .heart {
+    right: 10%;
+  }
+
+  /* Animaciones ajustadas */
+  .a1, .a2, .a3 {
+    transform: scale(1);  /* Ajuste de la escala */
+  }
+
+  /* Ajustes para que los botones sean funcionales */
+  .reset button {
+    font-size: 16px;  /* Ajusta el tamaño del texto */
+    padding: 12px 24px;  /* Ajusta el tamaño de los botones */
+    min-width: 150px;  /* Asegura que los botones tengan suficiente tamaño */
+  }
+}
+
+/* Ajustes para pantallas más grandes como tablets */
+@media (max-width: 1024px) {
+  #envelope {
+    width: 60vw;  /* Aumenta el tamaño para tablets */
+  }
+
+  .letter {
+    width: 90%;
+  }
+
+  .words.line1,
+  .words.line2,
+  .words.line3,
+  .words.line4 {
+    font-size: 1.2rem;
   }
 
   .flap {
-    border-left: 90px solid transparent;  /* Ajusta los bordes del flap para móviles */
+    border-left: 90px solid transparent;
     border-right: 90px solid transparent;
-    border-top: 60px solid #d9534f;  /* Cambia la altura del flap */
+    border-top: 75px solid #d9534f;
   }
 
   .pocket {
@@ -32,51 +88,5 @@
     border-right: 90px solid #f5a3a2;
     border-bottom: 70px solid #ff6f61;
     border-top: 70px solid transparent;
-  }
-
-  /* Ajuste de la posición de los corazones */
-  .hearts {
-    top: 50px;  /* Modifica la ubicación de los corazones en pantallas pequeñas */
-  }
-
-  .heart {
-    right: 5%;  /* Cambia la posición para que no se corte en pantallas pequeñas */
-  }
-
-  /* Ajustes de las animaciones */
-  .a1, .a2, .a3 {
-    transform: scale(1);  /* Asegúrate de que las animaciones no sean demasiado pequeñas */
-  }
-}
-
-/* Establecer tamaños para tablets y dispositivos intermedios */
-@media (max-width: 1024px) {
-  #envelope {
-    width: 60%;  /* Ajusta para tablets */
-  }
-
-  .letter {
-    width: 90%;  /* Ajusta el tamaño de la carta */
-  }
-
-  .words.line1 {
-    font-size: 1.1rem;
-  }
-
-  .words.line2, .words.line3, .words.line4 {
-    font-size: 1.3rem;
-  }
-
-  .flap {
-    border-left: 110px solid transparent;
-    border-right: 110px solid transparent;
-    border-top: 75px solid #d9534f;
-  }
-
-  .pocket {
-    border-left: 110px solid #f5a3a2;
-    border-right: 110px solid #f5a3a2;
-    border-bottom: 80px solid #ff6f61;
-    border-top: 80px solid transparent;
   }
 }
