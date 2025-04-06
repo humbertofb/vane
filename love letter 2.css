@@ -1,66 +1,97 @@
-/* Asegúrate de que el contenedor principal se ajuste en móviles */
 #envelope {
   position: relative;
-  width: 80vw; /* 80% del ancho de la pantalla */
-  max-width: 350px; /* Limitar el ancho máximo para que no se vea demasiado pequeño */
-  height: auto;
-  border-radius: 10px; /* Un poco de redondeo en las esquinas */
-  margin: 20px auto; /* Centrado automático */
-  background-color: #d9534f;
+  width: 280px;
+  height: 180px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  margin-left: auto;
+  margin-right: auto;
+  top: 150px;
+  background-color: #d9534f; /* Warm romantic red */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  padding: 10px;
 }
 
 .front {
-  width: 100%;
-  height: auto;
+  position: absolute;
+  width: 0;
+  height: 0;
   z-index: 3;
 }
 
 .flap {
-  border-left: 60px solid transparent;
-  border-right: 60px solid transparent;
-  border-top: 70px solid #d9534f;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  border-bottom: 82px solid transparent;
+  /* a little smaller */
+  border-top: 98px solid #d9534f; /* Same romantic red */
+  /* a little larger */
   transform-origin: top;
   pointer-events: none;
 }
 
 .pocket {
-  border-left: 60px solid #f5a3a2;
-  border-right: 60px solid #f5a3a2;
-  border-bottom: 60px solid #ff6f61;
-  border-top: 60px solid transparent;
-  border-radius: 6px;
+  border-left: 140px solid #f5a3a2; /* Soft pinkish red for the pocket */
+  border-right: 140px solid #f5a3a2;
+  border-bottom: 90px solid #ff6f61; /* Lighter romantic red */
+  border-top: 90px solid transparent;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 }
 
 .letter {
   position: relative;
   background-color: #fff;
-  width: 100%;
-  margin: 0 auto;
-  height: auto;
-  padding: 15px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+  top: 5%;
   border-radius: 6px;
   box-shadow: 0 2px 26px rgba(0, 0, 0, 0.12);
   font-family: "Dancing Script", cursive;
 }
 
-.words {
-  position: relative;
-  background-color: #ffe6e6;
-  padding: 10px;
-  text-align: center;
-  font-size: 1rem;
-  margin: 5px auto;
+.letter:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.words.line1,
-.words.line2,
-.words.line3,
+.words {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 14%;
+  background-color: #ffe6e6; /* Light romantic tone */
+}
+
+.words.line1 {
+  top: 10%;
+  font-size: 0.8rem;
+  width: 20%;
+  height: 7%;
+  font-size: 0.8rem;
+}
+
+.words.line2 {
+  top: 30%;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.words.line3 {
+  top: 50%;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
 .words.line4 {
-  width: 100%;
-  font-size: 1rem;
-  line-height: 1.5;
+  top: 70%;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 .open .flap {
@@ -106,9 +137,11 @@
 .heart:after {
   position: absolute;
   content: "";
+  left: 50px;
+  top: 0;
   width: 50px;
   height: 80px;
-  background: #e60073;
+  background: #e60073; /* Deep romantic pink */
   border-radius: 50px 50px 0 0;
   transform: rotate(-45deg);
   transform-origin: 0 100%;
@@ -132,8 +165,10 @@
   transform: scale(0.6);
   opacity: 1;
   -webkit-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
-  animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -moz-animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 
@@ -142,8 +177,10 @@
   transform: scale(1);
   opacity: 1;
   -webkit-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
-  animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -moz-animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 
@@ -152,52 +189,78 @@
   transform: scale(0.8);
   opacity: 1;
   -webkit-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
-  animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -moz-animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+  -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.7s;
   animation-delay: 0.7s;
 }
 
-/* Ajustes para dispositivos móviles */
-@media (max-width: 600px) {
-  #envelope {
-    width: 90vw; /* Aumenta el tamaño en móviles */
-    height: auto;
-    top: 5vh; /* Espacio desde la parte superior */
+@-webkit-keyframes slideUp {
+  0% {
+    top: 0;
   }
+  100% {
+    top: -600px;
+  }
+}
+@keyframes slideUp {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -600px;
+  }
+}
+@-webkit-keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+@keyframes sideSway {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 50px;
+  }
+}
+body {
+  background-color: #f0e6f6; /* Soft lavender for a romantic, dreamy feel */
+}
 
-  .flap {
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 60px solid #d9534f;
-  }
+.envlope-wrapper {
+  height: 380px;
+}
 
-  .pocket {
-    border-left: 50px solid #f5a3a2;
-    border-right: 50px solid #f5a3a2;
-    border-bottom: 50px solid #ff6f61;
-    border-top: 50px solid transparent;
-  }
+.reset {
+  text-align: center;
+}
 
-  .letter {
-    width: 100%;
-    padding: 10px;
-  }
+.reset button {
+  font-weight: 800;
+  font-style: normal;
+  transition: all 0.1s linear;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: solid 2px #d9534f;
+  border-radius: 4px;
+  color: #d9534f;
+  display: inline-block;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 5px;
+  padding: 10px;
+  line-height: 1em;
+  text-decoration: none;
+  min-width: 120px;
+  cursor: pointer;
+}
 
-  .words {
-    font-size: 0.9rem;  /* Ajusta el tamaño del texto */
-    padding: 5px;
-  }
-
-  .words.line1,
-  .words.line2,
-  .words.line3,
-  .words.line4 {
-    font-size: 0.9rem;  /* Ajusta el tamaño de las líneas */
-  }
-
-  .reset button {
-    font-size: 16px;
-    padding: 12px 20px;
-    min-width: 150px;
-  }
+.reset button:hover {
+  background-color: #d9534f;
+  color: #fff;
 }
